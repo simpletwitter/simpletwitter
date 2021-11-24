@@ -1,5 +1,5 @@
 LICENCE.txt
-README.txt
+README.md
 setup.py
 twitterbot_abipravi/__init__.py
 twitterbot_abipravi.egg-info/PKG-INFO
