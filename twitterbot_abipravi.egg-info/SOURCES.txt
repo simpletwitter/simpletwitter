@@ -1,0 +1,9 @@
+LICENCE.txt
+README.txt
+setup.py
+twitterbot_abipravi/__init__.py
+twitterbot_abipravi.egg-info/PKG-INFO
+twitterbot_abipravi.egg-info/SOURCES.txt
+twitterbot_abipravi.egg-info/dependency_links.txt
+twitterbot_abipravi.egg-info/requires.txt
+twitterbot_abipravi.egg-info/top_level.txt

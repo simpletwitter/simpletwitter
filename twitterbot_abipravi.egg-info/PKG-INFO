@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: twitterbot-abipravi
+Version: 0.0.1
+Summary: Python package for making twitter bot with less code
+Home-page: UNKNOWN
+Author: Abipravi
+Author-email: darkparadise877@gmail.com
+License: UNKNOWN
+Project-URL: Homepage, https://github.com/pravee42/Twitter_bot_module
+Keywords: python,first package,twitter,twitterbot_abipravi,make you own bot
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+License-File: LICENCE.txt
+
+this package can be used to create your own twitter bot with less code
+
