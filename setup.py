@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.1'
+VERSION = '1.1.2'
 DESCRIPTION = 'Python package for making twitter bot with less code'
 LONG_DESCRIPTION = '''
 This package can be used to make your own twitter bot with less code
@@ -19,14 +19,15 @@ any one who want to ugrate and add more feature to the module can create an issu
 '''
 
 setup(
-    name="twitterbot_abipravi",
+    name="simpletwitter",
     version=VERSION,
     author="Abipravi",
     author_email="darkparadise877@gmail.com",
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     packages=find_packages(),
-    keywords=['python', 'first package', 'twitter', 'twitterbot_abipravi', 'make you own bot'],
+    keywords=['python', 'first package', 'twitter',
+              'twitterbot_abipravi', 'make you own bot'],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Education",
@@ -35,15 +36,15 @@ setup(
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Microsoft :: Windows",
     ],
-     project_urls={
+    project_urls={
         'Homepage': 'https://github.com/pravee42/Twitter_bot_module',
     },
     install_requires=[
         'APScheduler',
-	'selenium',
-	'requests',
-	'tweepy',
-	'webdriver-manager',
+        'selenium',
+        'requests',
+        'tweepy',
+        'webdriver-manager',
     ]
 
 )
