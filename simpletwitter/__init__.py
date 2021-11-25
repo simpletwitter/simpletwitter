@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import time
 
 
-class simpletwitter:
+class SimpleTwitter:
     def __init__(self, email, password, no_of_tweets, user_name):
         self.email = email
         self.password = password
@@ -77,7 +77,7 @@ class simpletwitter:
         send_tweet_XPATH = self.wait.until(EC.presence_of_element_located((
             By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div[3]/div/div/div/div[1]/div/div/div/div/div[2]/div[3]/div/div/div[2]/div[4]'))).click()
 
-    def Unlike_liked_tweets(self, length):
+    def unlike_liked_tweets(self, length):
         goto_profile_XPATH = self.wait.until(EC.presence_of_element_located(
             (By.XPATH, '//*[@id="react-root"]/div/div/div[2]/header/div/div/div/div[1]/div[2]/nav/a[5]'))).click()
         goto_liked_tweets_XPATH = self.wait.until(EC.presence_of_element_located(

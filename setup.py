@@ -2,9 +2,9 @@ from setuptools import setup, find_packages
 
 
 with open("README.md", "r") as fh:
-        long_description = fh.read()
+    long_description = fh.read()
 
-VERSION = '1.1.31'
+VERSION = '1.2.1'
 DESCRIPTION = 'Python package for making twitter bot with less code'
 
 setup(
@@ -13,7 +13,7 @@ setup(
     author="Abipravi",
     author_email="darkparadise877@gmail.com",
     description=DESCRIPTION,
-    long_description_content_type="text/markdown", 
+    long_description_content_type="text/markdown",
     long_description=long_description,
     packages=find_packages(),
     keywords=['python', 'first package', 'twitter',
