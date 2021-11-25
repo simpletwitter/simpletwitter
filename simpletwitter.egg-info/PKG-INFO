@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: simpletwitter
-Version: 1.1.2
+Version: 1.1.31
 Summary: Python package for making twitter bot with less code
 Home-page: UNKNOWN
 Author: Abipravi
@@ -15,21 +15,20 @@ Classifier: Programming Language :: Python :: 2
 Classifier: Programming Language :: Python :: 3
 Classifier: Operating System :: MacOS :: MacOS X
 Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
 License-File: LICENCE.txt
 
+This package can be used to make your own twitter bot with less code <br />
 
-This package can be used to make your own twitter bot with less code
+*import the package using pip install* <br />
 
-import the package using pip install
+`usage:`
 
-usage:
-
-    bot = Twitterbot(email, password, no_of_tweets, username)
-    bot.login()
-    bot.like_tweet(hashtags) #like the twitte
-    bot.Unlike_liked_tweets(5) #unlike the liked tweet
-
-This bot module was created by Abipravi
-any one who want to ugrate and add more feature to the module can create an issue in github repository and make your PR's
+```from twitterbot_abipravi import Twitterbot
+bot = Twitterbot(email, password, no_of_tweets, username)
+bot.login()
+bot.like_tweet(hashtags) #like the twitte
+bot.Unlike_liked_tweets(5) #unlike the liked tweet
+```
 
 

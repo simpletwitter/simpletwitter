@@ -1,22 +1,11 @@
 from setuptools import setup, find_packages
 
-VERSION = '1.1.2'
+
+with open("README.md", "r") as fh:
+        long_description = fh.read()
+
+VERSION = '1.1.31'
 DESCRIPTION = 'Python package for making twitter bot with less code'
-LONG_DESCRIPTION = '''
-This package can be used to make your own twitter bot with less code
-
-import the package using pip install
-
-usage:
-
-    bot = Twitterbot(email, password, no_of_tweets, username)
-    bot.login()
-    bot.like_tweet(hashtags) #like the twitte
-    bot.Unlike_liked_tweets(5) #unlike the liked tweet
-
-This bot module was created by Abipravi
-any one who want to ugrate and add more feature to the module can create an issue in github repository and make your PR's
-'''
 
 setup(
     name="simpletwitter",
@@ -24,7 +13,8 @@ setup(
     author="Abipravi",
     author_email="darkparadise877@gmail.com",
     description=DESCRIPTION,
-    long_description=LONG_DESCRIPTION,
+    long_description_content_type="text/markdown", 
+    long_description=long_description,
     packages=find_packages(),
     keywords=['python', 'first package', 'twitter',
               'twitterbot_abipravi', 'make you own bot'],
