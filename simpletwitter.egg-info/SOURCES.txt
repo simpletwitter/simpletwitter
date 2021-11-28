@@ -1,0 +1,9 @@
+LICENCE.txt
+README.md
+setup.py
+simpletwitter/__init__.py
+simpletwitter.egg-info/PKG-INFO
+simpletwitter.egg-info/SOURCES.txt
+simpletwitter.egg-info/dependency_links.txt
+simpletwitter.egg-info/requires.txt
+simpletwitter.egg-info/top_level.txt
