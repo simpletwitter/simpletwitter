@@ -2,6 +2,10 @@ This package can be used to make your own twitter bot with less code <br />
 
 _import the package using pip install_ <br />
 
+`pip install simpletwitter`
+
+PyPi Link : [https://pypi.org/project/simpletwitter/](https://pypi.org/project/simpletwitter/)
+
 `usage:`
 
 ```
