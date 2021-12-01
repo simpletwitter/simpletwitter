@@ -12,10 +12,10 @@ class Twitterbot:
 
 
 == == == =
+
+
 class SimpleTwitter:
 
-
->>>>>> > f81daa775cbe54f64fa2f3e488be315c884de11a
     def __init__(self, email, password, no_of_tweets, user_name):
         self.email = email
         self.password = password
@@ -27,7 +27,6 @@ class SimpleTwitter:
 
     def login(self):
         bot = self.bot
-<< << << < HEAD
         bot.get("https://twitter.com/i/flow/login")
         time.sleep(3)
         try:
@@ -40,14 +39,12 @@ class SimpleTwitter:
                 (By.XPATH, '//*[@id = "layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/label/div/div[2]/div/input'))).send_keys(self.email)
             next_button = self.wait.until(EC.presence_of_element_located(
                 (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).send_keys(Keys.ENTER)
-== == == =
         bot.get("https://twitter.com/login")
         time.sleep(3)
         email_xpath = self.wait.until(EC.presence_of_element_located(
             (By.XPATH, '//*[@id = "layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/label/div/div[2]/div/input'))).send_keys(self.email)
         next_button = self.wait.until(EC.presence_of_element_located(
             (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).send_keys(Keys.ENTER)
->>>>>> > f81daa775cbe54f64fa2f3e488be315c884de11a
         try:
             print("email Entring")
             enter_email = self.wait.until(EC.presence_of_element_located(
@@ -58,17 +55,16 @@ class SimpleTwitter:
             pass
         password_xpath = self.wait.until(EC.presence_of_element_located(
             (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/label/div/div[2]/div/input'))).send_keys(self.password)
-<< << << < HEAD
         try:
             login_xpath = self.wait.until(EC.presence_of_element_located(
                 (By.XPATH, '//*[@id = "layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div/div'))).click()
         except:
             login_xpath = self.wait.until(EC.presence_of_element_located(
                 (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).click()
-== == == =
+
         login_xpath = self.wait.until(EC.presence_of_element_located(
             (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).click()
->>>>>> > f81daa775cbe54f64fa2f3e488be315c884de11a
+
         time.sleep(5)
 
     def like_tweet(self, hashtag):
