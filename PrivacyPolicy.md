@@ -91,3 +91,8 @@ def login(self):
 
         time.sleep(5)
 ```
+
+## Disclaimer
+
+Disclaimer, all the activities that the users are doing they are the complete responsible for it 
+Abipravi or simple Twitter will not take any responsibility for any problem or users activities
