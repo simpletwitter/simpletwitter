@@ -7,13 +7,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 import time
 
 
-<< << << < HEAD
-class Twitterbot:
-
-
-== == == =
-
-
 class SimpleTwitter:
 
     def __init__(self, email, password, no_of_tweets, user_name):
