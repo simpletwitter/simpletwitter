@@ -33,3 +33,61 @@
     You can encode you password and store it inside the db or anyother **.env** file
     later decode at the time of function call and make the bit functionable
     ```
+
+
+#### Why we dont ask for API instead Password
+
+This may seems suspecious to all of them i know that,
+** Answer => **
+This complete module is created using the `selenium` module it need to login into you account and then performs the operation of the normal user who do in the actual twitter
+
+If you see the code that there is no sending os password to anyone or storing the password in any other cloud it is just simply using selinium to login and all the stuff
+Just like Data Analylist do while scraping the Data
+
+**Here is the Proff of the code **
+
+For Full Code: [Visite File](https://github.com/pravee42/simpletwitter/blob/master/simpletwitter/__init__.py)
+
+``` py
+def login(self):
+        bot = self.bot
+        bot.get("https://twitter.com/i/flow/login")
+        time.sleep(3)
+        try:
+            email_xpath = self.wait.until(EC.presence_of_element_located(
+                (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[5]/label/div/div[2]/div/input'))).send_keys(self.email)
+            next_button = self.wait.until(EC.presence_of_element_located(
+                (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[6]/div'))).click()
+        except:
+            email_xpath = self.wait.until(EC.presence_of_element_located(
+                (By.XPATH, '//*[@id = "layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/label/div/div[2]/div/input'))).send_keys(self.email)
+            next_button = self.wait.until(EC.presence_of_element_located(
+                (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).send_keys(Keys.ENTER)
+        bot.get("https://twitter.com/login")
+        time.sleep(3)
+        email_xpath = self.wait.until(EC.presence_of_element_located(
+            (By.XPATH, '//*[@id = "layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/label/div/div[2]/div/input'))).send_keys(self.email)
+        next_button = self.wait.until(EC.presence_of_element_located(
+            (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).send_keys(Keys.ENTER)
+        try:
+            print("email Entring")
+            enter_email = self.wait.until(EC.presence_of_element_located(
+                (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/label/div/div[2]/div/input'))).send_keys(self.user_name)
+            next_click = self.wait.until(EC.presence_of_element_located(
+                (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).send_keys(Keys.ENTER)
+        except:
+            pass
+        password_xpath = self.wait.until(EC.presence_of_element_located(
+            (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/label/div/div[2]/div/input'))).send_keys(self.password)
+        try:
+            login_xpath = self.wait.until(EC.presence_of_element_located(
+                (By.XPATH, '//*[@id = "layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div/div'))).click()
+        except:
+            login_xpath = self.wait.until(EC.presence_of_element_located(
+                (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).click()
+
+        login_xpath = self.wait.until(EC.presence_of_element_located(
+            (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).click()
+
+        time.sleep(5)
+```
