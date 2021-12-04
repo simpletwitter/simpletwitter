@@ -6,8 +6,7 @@ _import the package using pip install_ <br />
 
 PyPi Link :
 [https://pypi.org/project/simpletwitter/](https://pypi.org/project/simpletwitter/)
-<br /> Privacy Policy Link:
-[https://github.com/pravee42/simpletwitter/blob/master/PrivacyPolicy.md](https://github.com/pravee42/simpletwitter/blob/master/PrivacyPolicy.md)
+
 
 `usage:`
 
