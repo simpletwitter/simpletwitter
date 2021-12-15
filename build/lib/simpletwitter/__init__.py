@@ -4,6 +4,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from bs4 import BeautifulSoup
+import requests
+from lxml import etree
 import time
 
 
@@ -20,56 +23,40 @@ class SimpleTwitter:
     def login(self):
         bot = self.bot
         bot.get("https://twitter.com/i/flow/login")
-        time.sleep(3)
-
+        print("Attempt1")
         try:
             email_path = self.wait.until(EC.presence_of_element_located(
                 (By.XPATH, '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div[2]/div[2]/div[1]/div/div[5]/label/div/div[2]/div/input'))).send_keys(self.email)
-
-        except:
-            pass
-        try:
-            email_xpath = self.wait.until(EC.presence_of_element_located(
-                (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[5]/label/div/div[2]/div/input'))).send_keys(self.email)
-            time.sleep(3)
             next_button = self.wait.until(EC.presence_of_element_located(
-                (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[6]/div'))).click()
-        except:
-            email_xpath = self.wait.until(EC.presence_of_element_located(
-                (By.XPATH, '//*[@id = "layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/label/div/div[2]/div/input'))).send_keys(self.email)
-            time.sleep(3)
+                (By.XPATH, '//*[@id = "layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[6]/div'))).click()
+            try:
+                username = self.wait.until(EC.presence_of_element_located(
+                    (By.XPATH, '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/label/div/div[2]/div/input'))).send_keys(self.user_name)
+                next_button = self.wait.until(EC.presence_of_element_located(
+                    (By.XPATH, '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).click()
+            except:
+                pass
+            password = self.wait.until(EC.presence_of_element_located(
+                (By.XPATH, '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/label/div/div[2]/div[1]/input'))).send_keys(self.password)
             next_button = self.wait.until(EC.presence_of_element_located(
-                (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).send_keys(Keys.ENTER)
-        # bot.get("https://twitter.com/login")
-        time.sleep(3)
-        try:
-            email_xpath = self.wait.until(EC.presence_of_element_located(
-                (By.XPATH, '//*[@id = "layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/label/div/div[2]/div/input'))).send_keys(self.email)
+                (By.XPATH, '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div'))).click()
+        except:
+            print("Attempt2")
+            email = self.wait.until(EC.presence_of_element_located(
+                (By.XPATH, '//*[@id = "layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[5]/label/div/div[2]/div/input'))).send_keys(self.email)
             next_button = self.wait.until(EC.presence_of_element_located(
-                (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).send_keys(Keys.ENTER)
-        except:
-            pass
-        try:
-            print("email Entring")
-            enter_email = self.wait.until(EC.presence_of_element_located(
-                (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/label/div/div[2]/div/input'))).send_keys(self.user_name)
-            next_click = self.wait.until(EC.presence_of_element_located(
-                (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).send_keys(Keys.ENTER)
-        except:
-            pass
-        password_xpath = self.wait.until(EC.presence_of_element_located(
-            (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/label/div/div[2]/div/input'))).send_keys(self.password)
-        try:
-            login_xpath = self.wait.until(EC.presence_of_element_located(
-                (By.XPATH, '//*[@id = "layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div/div'))).click()
-        except:
-            login_xpath = self.wait.until(EC.presence_of_element_located(
-                (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).click()
-        try:
-            login_xpath = self.wait.until(EC.presence_of_element_located(
-                (By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).click()
-        except:
-            pass
+                (By.XPATH, '//*[@id = "layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[6]/div'))).click()
+            try:
+                username = self.wait.until(EC.presence_of_element_located(
+                    (By.XPATH, '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/label/div/div[2]/div/input'))).send_keys(self.user_name)
+                next_button = self.wait.until(EC.presence_of_element_located(
+                    (By.XPATH, '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div'))).click()
+            except:
+                pass
+            password = self.wait.until(EC.presence_of_element_located(
+                (By.XPATH, '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/label/div/div[2]/div[1]/input'))).send_keys(self.password)
+            next_button = self.wait.until(EC.presence_of_element_located(
+                (By.XPATH, '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div'))).click()
         time.sleep(5)
 
     def like_tweet(self, hashtag):

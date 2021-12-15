@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-VERSION = '1.2.5'
+VERSION = '1.2.6'
 DESCRIPTION = 'Python package for making twitter bot with less code'
 
 setup(
@@ -35,6 +35,8 @@ setup(
         'requests',
         'tweepy',
         'webdriver-manager',
+        'lxml',
+        'bs4',
     ]
 
 )
