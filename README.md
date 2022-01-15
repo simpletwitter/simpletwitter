@@ -55,3 +55,7 @@ bot.login()
 hashtags = ["#reactjs", "abipravi"]
 bot.retweet(hashtags)
 ```
+
+#### Features
+- [ ] Scrape Data for analytics
+- [ ] Daiy qoute post in twitter
