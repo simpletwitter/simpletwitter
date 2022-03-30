@@ -21,6 +21,11 @@ bot.unlike_liked_tweets(5) #unlike the liked tweet
 bot.tweet(tweetmessage) #put some tweet
 ```
 
+### Users Currently Using:
+| **Total Downloads** | **Monthly Downloads**  | **Weekly Downloads** |
+| ------------- | ----------------- | -------------- |
+| 6,141      | 1,370 | 257 | 
+
 #### Packages used
 
 | **Tool Name** | **Purpose**       |
