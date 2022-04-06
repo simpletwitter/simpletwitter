@@ -24,7 +24,7 @@ bot.tweet(tweetmessage) #put some tweet
 ### Users Currently Using:
 | **Total Downloads** | **Monthly Downloads**  | **Weekly Downloads** |
 | ------------- | ----------------- | -------------- |
-| 6,188      | 1,360 | 221 | 
+| 6,233      | 1,292 | 112 | 
 
 #### Packages used
 
