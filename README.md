@@ -26,6 +26,10 @@ bot.tweet(tweetmessage) #put some tweet
 | ------------- | ----------------- | -------------- |
 | 6,233      | 1,292 | 112 | 
 
+### Users Graph
+![image](https://user-images.githubusercontent.com/65100038/162007702-d3455ac0-18f2-47d0-a9b8-73f464a3c047.png)
+
+
 #### Packages used
 
 | **Tool Name** | **Purpose**       |
