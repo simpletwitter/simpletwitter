@@ -24,10 +24,11 @@ bot.tweet(tweetmessage) #put some tweet
 ### Users Currently Using:
 | **Total Downloads** | **Monthly Downloads**  | **Weekly Downloads** |
 | ------------- | ----------------- | -------------- |
-| 6,233      | 1,292 | 112 | 
+| 6,279      | 1,310 | 138 | 
 
 ### Users Graph
-![image](https://user-images.githubusercontent.com/65100038/162007702-d3455ac0-18f2-47d0-a9b8-73f464a3c047.png)
+![image](https://user-images.githubusercontent.com/65100038/162125199-bf98ad10-0c00-476b-b98d-b13fbff5d48a.png)
+
 
 
 #### Packages used
