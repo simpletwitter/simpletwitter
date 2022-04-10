@@ -24,7 +24,7 @@ bot.tweet(tweetmessage) #put some tweet
 ### Users Currently Using:
 | **Total Downloads** | **Monthly Downloads**  | **Weekly Downloads** |
 | ------------- | ----------------- | -------------- |
-| 6,279      | 1,310 | 138 | 
+| 6,360      | 1,297 | 172 | 
 
 ### Users Graph
 ![image](https://user-images.githubusercontent.com/65100038/162125199-bf98ad10-0c00-476b-b98d-b13fbff5d48a.png)
