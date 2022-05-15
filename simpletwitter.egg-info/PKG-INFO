@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: simpletwitter
-Version: 1.2.6
+Version: 1.2.7
 Summary: Python package for making twitter bot with less code
 Home-page: UNKNOWN
 Author: Abipravi
@@ -27,6 +27,8 @@ _import the package using pip install_ <br />
 PyPi Link :
 [https://pypi.org/project/simpletwitter/](https://pypi.org/project/simpletwitter/)
 
+[![Downloads](https://static.pepy.tech/personalized-badge/simpletwitter?period=total&units=abbreviation&left_color=yellowgreen&right_color=yellow&left_text=Total%20Users)](https://pepy.tech/project/simpletwitter)
+
 
 `usage:`
 
@@ -38,6 +40,16 @@ bot.like_tweet(hashtags) #like the twitte
 bot.unlike_liked_tweets(5) #unlike the liked tweet
 bot.tweet(tweetmessage) #put some tweet
 ```
+
+### Users Currently Using:
+| **Total Downloads** | **Monthly Downloads**  | **Weekly Downloads** |
+| ------------- | ----------------- | -------------- |
+| 7,065      | 785 | 166 | 
+
+### Users Graph
+![image](https://user-images.githubusercontent.com/65100038/162125199-bf98ad10-0c00-476b-b98d-b13fbff5d48a.png)
+
+
 
 #### Packages used
 
@@ -73,5 +85,9 @@ bot.login()
 hashtags = ["#reactjs", "abipravi"]
 bot.retweet(hashtags)
 ```
+
+#### Features
+- [ ] Scrape Data for analytics
+- [ ] Daiy qoute post in twitter
 
 
