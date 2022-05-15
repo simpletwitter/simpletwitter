@@ -9,6 +9,8 @@ from selenium.webdriver.chrome.service import Service
 import requests
 from lxml import etree
 import time
+import json
+import time
 
 
 class SimpleTwitter:
@@ -244,7 +246,7 @@ class SimpleTwitter:
             EC.presence_of_element_located(
                 (
                     By.XPATH,
-                    '//*[@id="react-root"]/div/div/div[2]/header/div/div/div/div[1]/div[3]/a/div/span/div/div/span/span',
+                    '//*[@id="react-root"]/div/div/div[2]/header/div/div/div/div[1]/div[3]/a',
                 )
             )
         ).click()
@@ -253,18 +255,24 @@ class SimpleTwitter:
             EC.presence_of_element_located(
                 (
                     By.XPATH,
-                    '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div[3]/div/div/div/div[1]/div/div/div/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div/label/div[1]/div/div/div/div/div/div/div/div/div',
+                    '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div/label/div[1]/div/div/div/div/div/div/div/div',
                 )
             )
         ).send_keys(tweet_body)
-        send_tweet_XPATH = self.wait.until(
-            EC.presence_of_element_located(
-                (
-                    By.XPATH,
-                    '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div[3]/div/div/div/div[1]/div/div/div/div/div[2]/div[3]/div/div/div[2]/div[4]',
+
+        try:
+            send_tweet_XPATH = self.wait.until(
+                EC.element_to_be_clickable(
+                    (
+                        By.XPATH,
+                        '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div[2]/div[3]/div/div/div[2]/div[4]',
+                    )
                 )
+            ).click()
+        except:
+            self.bot.execute_script(
+                "window.scrollTo(0, document.body.scrollHeight/1.5);"
             )
-        ).click()
 
     def Unlike_liked_tweets(self, length):
         goto_profile_XPATH = self.wait.until(
@@ -363,3 +371,41 @@ class SimpleTwitter:
                     time.sleep(1)
         time.sleep(1)
         print("Next hashtag")
+
+    def post_tech_news(self, no_of_tweets):
+        tech = []
+        tech_image = []
+        techlink = []
+        for i in range(0, no_of_tweets):
+            print("page: ", i)
+            URL = "https://www.indiatoday.in/technology/news?page=" + str(i)
+            page = requests.get(URL)
+            soup = BeautifulSoup(page.content, "html.parser")
+            results = soup.find(id="content")
+            elements = results.find_all("div", class_="catagory-listing")
+            for job_element in elements:
+                title_element = job_element.find("h2")
+                image = job_element.find("img")
+                tech_image.append(image["src"])
+                tech.append(title_element.text.strip())
+                if job_element.find("a", href=True):
+                    location_element = job_element.find("a", href=True)
+                    if location_element == "":
+                        techlink.append("none")
+                    else:
+                        link = "https://www.indiatoday.in" + \
+                            location_element["href"]
+                        techlink.append(link)
+        x = [
+            {"news": name, "image": image, "link": link}
+            for name, image, link in zip(tech, tech_image, techlink)
+        ]
+        for key in x:
+            m = []
+            for attribute, value in key.items():
+                m.append(value)
+            hashtag = m[0].split(' ', 1)[0]
+            z = f"News: \n{m[0]}\nSource link: \n{m[2]}\n#{hashtag} "
+            self.tweet(z)
+            time.sleep(2)
+        return x
