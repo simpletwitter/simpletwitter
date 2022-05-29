@@ -24,11 +24,11 @@ bot.tweet(tweetmessage) #put some tweet
 
 | **Total Downloads** | **Monthly Downloads** | **Weekly Downloads** |
 | ------------------- | --------------------- | -------------------- |
-| 7,865               | 1,233                   | 265                  |
+| 7,958               | 1,238                   | 208                  |
 
 ### Users Graph
 
-![image](https://user-images.githubusercontent.com/65100038/170423294-ae77dd8a-9b7f-40d1-8115-c0196a70d548.png)
+![image](https://user-images.githubusercontent.com/65100038/170854263-59585351-5c5a-47da-90a0-37b1b8e0fd3f.png)
 
 #### Packages used
 
