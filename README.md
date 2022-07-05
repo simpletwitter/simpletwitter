@@ -20,11 +20,11 @@ bot.unlike_liked_tweets(5) #unlike the liked tweet
 bot.tweet(tweetmessage) #put some tweet
 ```
 
-### Users Currently Using as of (18-06-2022):
+### Users Currently Using as of (05-07-2022):
 
 | **Total Downloads** | **Monthly Downloads** | **Weekly Downloads** |
 | ------------------- | --------------------- | -------------------- |
-| 8,420              | 1,355                   | 237                  |
+| 8,717              | 749                   | 88                  |
 
 ### Users Graph
 
