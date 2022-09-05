@@ -7,6 +7,9 @@ _import the package using pip install_ <br />
 PyPi Link :
 [https://pypi.org/project/simpletwitter/](https://pypi.org/project/simpletwitter/)
 
+Google Groups Link: 
+[https://groups.google.com/g/simpletwitter](https://groups.google.com/g/simpletwitter)
+
 [![Downloads](https://static.pepy.tech/personalized-badge/simpletwitter?period=total&units=abbreviation&left_color=yellowgreen&right_color=yellow&left_text=Total%20Users)](https://pepy.tech/project/simpletwitter)
 
 `usage:`
