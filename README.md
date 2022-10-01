@@ -85,3 +85,4 @@ x = bot.post_tech_news(no_of_news_to_be_posted)
 
 - [ ] Scrape Data for analytics
 - [x] Tech News post in twitter
+- [ ] Twitter APi also using Twitter API keys
