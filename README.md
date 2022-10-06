@@ -27,7 +27,7 @@ bot.tweet(tweetmessage) #put some tweet
 
 | **Total Downloads** | **Monthly Downloads** | **Weekly Downloads** |
 | ------------------- | --------------------- | -------------------- |
-| 10437              | 850                   | 266                  |
+| 10,515              | 736                   | 153                  |
 
 ### Users Graph
 
