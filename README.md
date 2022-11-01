@@ -44,10 +44,11 @@ bot.tweet(tweetmessage) #put some tweet
 | ------------- | ----------------- |
 | Selenium      | Chrome Automation |
 
-| Feature Update | 2 feature update added on 28/11/2021                               |
+| Feature Update | 3 feature update added on 15th May 2022                               |
 | -------------- | ------------------------------------------------------------------ |
 | Update 1       | `Added function to retweet`                                        |
 | Update 2       | `Added feature to like the top tweets of the particular hash tags` |
+| Update 3       | `Added Tech News feature to post news on twitter account` |
 
 #### Code Usage of Updates
 
