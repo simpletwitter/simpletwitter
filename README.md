@@ -10,7 +10,10 @@ PyPi Link :
 Google Groups Link: 
 [https://groups.google.com/g/simpletwitter](https://groups.google.com/g/simpletwitter)
 
-[![Downloads](https://static.pepy.tech/personalized-badge/simpletwitter?period=total&units=abbreviation&left_color=yellowgreen&right_color=yellow&left_text=Total%20Users)](https://pepy.tech/project/simpletwitter)
+[![Downloads](https://static.pepy.tech/personalized-badge/simpletwitter?period=total&units=international_system&left_color=black&right_color=brightgreen&left_text=Users%20Total)](https://pepy.tech/project/simpletwitter)
+[![Downloads](https://static.pepy.tech/personalized-badge/simpletwitter?period=month&units=international_system&left_color=black&right_color=brightgreen&left_text=Users%20This%20Month)](https://pepy.tech/project/simpletwitter)
+[![Downloads](https://static.pepy.tech/personalized-badge/simpletwitter?period=week&units=international_system&left_color=black&right_color=brightgreen&left_text=Users%20This%20Week)](https://pepy.tech/project/simpletwitter)
+[![Downloads](https://static.pepy.tech/personalized-badge/simpletwitter?period=total&units=none&left_color=black&right_color=brightgreen&left_text=User%20in%20Numbers)](https://pepy.tech/project/simpletwitter)
 
 `usage:`
 
@@ -23,11 +26,13 @@ bot.unlike_liked_tweets(5) #unlike the liked tweet
 bot.tweet(tweetmessage) #put some tweet
 ```
 
-### Users Currently Using as of (05-07-2022):
+### Users Currently Using as of (01-11-2022):
 
 | **Total Downloads** | **Monthly Downloads** | **Weekly Downloads** |
 | ------------------- | --------------------- | -------------------- |
-| 10,515              | 736                   | 153                  |
+| 11,233              | 884                   | 175                  |
+
+### Current Version 1.2.6
 
 ### Users Graph
 
