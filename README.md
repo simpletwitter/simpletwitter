@@ -93,3 +93,4 @@ x = bot.post_tech_news(no_of_news_to_be_posted)
 - [x] Tech News post in twitter
 - [ ] Twitter APi also using Twitter API keys
 - [ ] Create an web Admin Dashboard for the Twitter Automation
+- [ ] Linked in to Twitter Post
