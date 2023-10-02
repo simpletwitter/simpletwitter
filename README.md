@@ -36,7 +36,7 @@ bot.tweet(tweetmessage) #put some tweet
 
 ### Users Graph
 
-![image](https://user-images.githubusercontent.com/65100038/173526470-c8f7fb08-f3c9-43fb-85f4-c8fafc0b52ab.png)
+![image](https://github.com/pravee42/simpletwitter/assets/65100038/08ac5b6c-5137-482e-8824-ff712a177379)
 
 #### Packages used
 
