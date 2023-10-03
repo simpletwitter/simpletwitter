@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-VERSION = '1.3.0'
+VERSION = '1.3.1'
 DESCRIPTION = 'Python package for making twitter bot with less code'
 
 setup(

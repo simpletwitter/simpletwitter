@@ -33,7 +33,7 @@ bot.tweet(tweetmessage) #put some tweet
 | ------------------- | --------------------- | -------------------- |
 | 16,455              | 279                   | 169                  |
 
-### Current Version 1.3.0
+### Current Version 1.3.1
 
 ### Users Graph
 
