@@ -26,11 +26,11 @@ bot.unlike_liked_tweets(5) #unlike the liked tweet
 bot.tweet(tweetmessage) #put some tweet
 ```
 
-### Users Currently Using as of (01-11-2022):
+### Users Currently Using as of (03-10-2023):
 
 | **Total Downloads** | **Monthly Downloads** | **Weekly Downloads** |
 | ------------------- | --------------------- | -------------------- |
-| 11,233              | 884                   | 175                  |
+| 16,455              | 279                   | 169                  |
 
 ### Current Version 1.2.6
 
@@ -44,11 +44,12 @@ bot.tweet(tweetmessage) #put some tweet
 | ------------- | ----------------- |
 | Selenium      | Chrome Automation |
 
-| Feature Update | 3 feature update added on 15th May 2022                               |
+| Feature Update | 3 feature update added on 3rd October 2023                               |
 | -------------- | ------------------------------------------------------------------ |
 | Update 1       | `Added function to retweet`                                        |
 | Update 2       | `Added feature to like the top tweets of the particular hash tags` |
 | Update 3       | `Added Tech News feature to post news on twitter account` |
+| Update 4       | `Can able to post Linked in content into a tweet using AI summarizer tool from **Hugging Face.io**` |
 
 #### Code Usage of Updates
 
