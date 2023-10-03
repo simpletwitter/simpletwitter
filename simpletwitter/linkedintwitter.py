@@ -39,3 +39,4 @@ def LinkedInTwitter(posturl):
         m1 = summarize(m.get_text())
     return m1 
 
+

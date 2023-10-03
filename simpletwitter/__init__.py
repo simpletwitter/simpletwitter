@@ -414,3 +414,7 @@ class SimpleTwitter:
     def postLinkedIn(self, content):
        x = LinkedInTwitter(content)  
        self.tweet(x)
+
+       
+if name == 'main': 
+    app.run(debug=True)
