@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from bs4 import BeautifulSoup
+from linkedintwitter import LinkedInTwitter
 from selenium.webdriver.chrome.service import Service
 import requests
 from lxml import etree
@@ -20,7 +21,6 @@ class SimpleTwitter:
         self.no_of_tweets = no_of_tweets
         self.user_name = user_name
         self.s = Service(ChromeDriverManager().install())
-        print(self.s, "sdkjfhsfkjh")
         self.bot = webdriver.Chrome(service=self.s)
         self.wait = WebDriverWait(self.bot, 20)
 
@@ -207,7 +207,7 @@ class SimpleTwitter:
                 EC.presence_of_element_located(
                     (
                         By.XPATH,
-                        '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/div[2]/div/div/div/form/div[1]/div/div/label/div[2]/div/input',
+                        '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[1]/div[1]/div[1]/div/div/div/div/div[1]/div[2]/div/div/div/form/div[1]/div/div/div/label/div[2]/div/input',
                     )
                 )
             ).send_keys(x)
@@ -215,11 +215,10 @@ class SimpleTwitter:
                 EC.presence_of_element_located(
                     (
                         By.XPATH,
-                        '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/div[2]/div/div/div/form/div[1]/div/div/label/div[2]/div/input',
+                        '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[1]/div[1]/div[1]/div/div/div/div/div[1]/div[2]/div/div/div/form/div[1]/div/div/div/label/div[2]/div/input',
                     )
                 )
             ).send_keys(Keys.ENTER)
-            time.sleep(5)
             print("sleeping")
             for i in range(self.no_of_tweets):
                 print(i)
@@ -255,17 +254,19 @@ class SimpleTwitter:
             EC.presence_of_element_located(
                 (
                     By.XPATH,
-                    '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div/label/div[1]/div/div/div/div/div/div/div/div',
+                    '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div/div[3]/div[2]/div[1]/div/div/div/div[1]/div[2]/div/div/div/div/div/div/div[2]/div/div/div/div/label/div[1]/div/div/div/div/div/div[2]/div/div/div/div',
                 )
             )
         ).send_keys(tweet_body)
+
+        send_tweet = self.wait.until(EC.element_to_be_clickable((By.XPATH,'//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div/div[3]/div[2]/div[1]/div/div/div/div[2]/div[2]/div/div/div[2]/div[4]'))).click()
 
         try:
             send_tweet_XPATH = self.wait.until(
                 EC.element_to_be_clickable(
                     (
                         By.XPATH,
-                        '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div[2]/div[3]/div/div/div[2]/div[4]',
+                        '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div/div[3]/div[2]/div[1]/div/div/div/div[2]/div[2]/div/div/div[2]/div',
                     )
                 )
             ).click()
@@ -409,3 +410,7 @@ class SimpleTwitter:
             self.tweet(z)
             time.sleep(2)
         return x
+    
+    def postLinkedIn(self, content):
+       x = LinkedInTwitter(content)  
+       self.tweet(x)
