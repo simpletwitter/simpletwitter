@@ -87,10 +87,21 @@ no_of_news_to_be_posted = 1
 x = bot.post_tech_news(no_of_news_to_be_posted)
 ```
 
+##### Update 4
+
+Post **LinkedIn** Content from URL into Twitter **Tweet**
+
+```
+from simpletwitter import SimpleTwitter
+bot = SimpleTwitter(email, password, no_of_tweets, username)
+bot.login()
+bot.postLinkedIn(Url)
+```
+
 #### Features
 
 - [ ] Scrape Data for analytics
-- [x] Tech News post in twitter
+- [x] Tech News post in Twitter
 - [ ] Twitter APi also using Twitter API keys
-- [ ] Create an web Admin Dashboard for the Twitter Automation
+- [ ] Create a web Admin Dashboard for the Twitter Automation
 - [x] Linked in to Twitter Post
