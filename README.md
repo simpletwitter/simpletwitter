@@ -4,7 +4,6 @@ _import the package using pip install_ <br />
 
 `pip install simpletwitter`
 
-#### Current Version: `1.3.0`
 
 PyPi Link :
 [https://pypi.org/project/simpletwitter/](https://pypi.org/project/simpletwitter/)
@@ -34,7 +33,7 @@ bot.tweet(tweetmessage) #put some tweet
 | ------------------- | --------------------- | -------------------- |
 | 16,455              | 279                   | 169                  |
 
-### Current Version 1.2.6
+### Current Version 1.3.0
 
 ### Users Graph
 
