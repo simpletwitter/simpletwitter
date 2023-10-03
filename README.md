@@ -4,6 +4,8 @@ _import the package using pip install_ <br />
 
 `pip install simpletwitter`
 
+#### Current Version: `1.3.0`
+
 PyPi Link :
 [https://pypi.org/project/simpletwitter/](https://pypi.org/project/simpletwitter/)
 
