@@ -1,4 +1,4 @@
-This package can be used to make your own twitter bot with less code <br />
+This package can be used to make your own twitter bot with less line of code <br />
 
 _import the package using pip install_ <br />
 
