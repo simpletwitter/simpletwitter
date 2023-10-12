@@ -31,7 +31,7 @@ bot.tweet(tweetmessage) #put some tweet
 
 | **Total Downloads** | **Monthly Downloads** | **Weekly Downloads** |
 | ------------------- | --------------------- | -------------------- |
-| 16,455              | 279                   | 169                  |
+| 16,881             | 652                   | 93                  |
 
 ### Current Version 1.3.1
 
