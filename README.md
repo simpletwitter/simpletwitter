@@ -11,6 +11,9 @@ PyPi Link :
 Google Groups Link: 
 [https://groups.google.com/g/simpletwitter](https://groups.google.com/g/simpletwitter)
 
+Discussions Link:
+[https://github.com/orgs/simpletwitter/discussions](https://github.com/orgs/simpletwitter/discussions)
+
 [![Downloads](https://static.pepy.tech/personalized-badge/simpletwitter?period=total&units=international_system&left_color=black&right_color=brightgreen&left_text=Users%20Total)](https://pepy.tech/project/simpletwitter)
 [![Downloads](https://static.pepy.tech/personalized-badge/simpletwitter?period=month&units=international_system&left_color=black&right_color=brightgreen&left_text=Users%20This%20Month)](https://pepy.tech/project/simpletwitter)
 [![Downloads](https://static.pepy.tech/personalized-badge/simpletwitter?period=week&units=international_system&left_color=black&right_color=brightgreen&left_text=Users%20This%20Week)](https://pepy.tech/project/simpletwitter)
