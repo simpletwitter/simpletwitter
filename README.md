@@ -4,6 +4,8 @@ _import the package using pip install_ <br />
 
 `pip install simpletwitter`
 
+Website: [https://simpletwitter.netlify.app/](https://simpletwitter.netlify.app/)
+
 
 PyPi Link :
 [https://pypi.org/project/simpletwitter/](https://pypi.org/project/simpletwitter/)
