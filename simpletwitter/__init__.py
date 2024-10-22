@@ -13,6 +13,25 @@ import time
 import json
 import time
 
+'''LOCATORS'''
+TWITTER_URL = "https://twitter.com/i/flow/login"
+EMAIL = ".//input[@name='text']"
+NEXT_BUTTON = ".//span[contains(text(),'Next')]/parent::span/parent::div[@dir='ltr']"
+PASSWORD = ".//input[@name='password']"
+LOGIN_BUTTON = ".//button[@data-testid='LoginForm_Login_Button']"
+POST_BUTTON = ".//a[@href='/compose/post']"
+TWEET_TEXT = "(.//div[@aria-label='Post text'])[1]"
+SEARCH_BOX = ".//input[@placeholder='Search']"
+TWEETS = "//article[@role='article']"
+LIKE_BUTTONS = "//button[@data-testid='like']"
+LIKE_BUTTON = "(//button[@data-testid='like'])[1]"
+POST_TWEET_BUTTON = "//button[@data-testid='tweetButton']"
+PROFILE_BUTTON = "//a[@aria-label='Profile']"
+LIKE_TAB_IN_PROFILE = "//span[contains(text(),'Likes')]"
+UNLIKE_BUTTONS = "//button[@data-testid='unlike']"
+REPOST_BUTTONS = "//button[@data-testid='retweet']"
+RETWEET_CONFIRM_BUTTON = "//div[@data-testid='retweetConfirm']"
+CLOSE_BAR_BUTTON = "(.//button[@role='button'][@type='button'])[2]"
 
 class SimpleTwitter:
     def __init__(self, email, password, no_of_tweets, user_name):
@@ -22,356 +41,151 @@ class SimpleTwitter:
         self.user_name = user_name
         self.s = Service(ChromeDriverManager().install())
         self.bot = webdriver.Chrome(service=self.s)
+        self.bot.maximize_window()
         self.wait = WebDriverWait(self.bot, 20)
+
 
     def login(self):
         bot = self.bot
-        bot.get("https://twitter.com/i/flow/login")
+        bot.get(TWITTER_URL)
         print("Attempt1")
         try:
-            email_path = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[5]/label/div/div[2]/div/input',
-                    )
-                )
-            ).send_keys(self.email)
-            next_button = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '// *[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[6]',
-                    )
-                )
-            ).click()
+            email_path = self.wait.until(EC.presence_of_element_located((By.XPATH, EMAIL))).send_keys(self.email)
+            login_button = self.wait.until(EC.presence_of_element_located((By.XPATH, NEXT_BUTTON))).click()
             try:
-                username = self.wait.until(
-                    EC.presence_of_element_located(
-                        (
-                            By.XPATH,
-                            '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/label/div/div[2]/div/input',
-                        )
-                    )
-                ).send_keys(self.user_name)
-                next_button = self.wait.until(
-                    EC.presence_of_element_located(
-                        (
-                            By.XPATH,
-                            '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div',
-                        )
-                    )
-                ).click()
+                username = self.wait.until(EC.presence_of_element_located((By.XPATH, EMAIL))).send_keys(self.user_name)
+                next_button = self.wait.until(EC.presence_of_element_located((By.XPATH, NEXT_BUTTON))).click()
             except:
                 pass
-            password = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div/div[3]/div/label/div/div[2]/div[1]/input',
-                    )
-                )
-            ).send_keys(self.password)
-            next_button = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div',
-                    )
-                )
-            ).click()
+            password = self.wait.until(EC.presence_of_element_located((By.XPATH, PASSWORD))).send_keys(self.password)
+            time.sleep(1)
+            login_button = self.wait.until(EC.presence_of_element_located((By.XPATH, LOGIN_BUTTON))).click()
+            time.sleep(5)
         except:
             print("Attempt2")
-            email = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id = "layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[5]/label/div/div[2]/div/input',
-                    )
-                )
-            ).send_keys(self.email)
-            next_button = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id = "layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[6]/div',
-                    )
-                )
-            ).click()
+            email = self.wait.until(EC.presence_of_element_located((By.XPATH, EMAIL))).send_keys(self.email)
+            next_button = self.wait.until(EC.presence_of_element_located((By.XPATH, NEXT_BUTTON))).click()
             try:
                 print("Attempt3")
-                username = self.wait.until(
-                    EC.presence_of_element_located(
-                        (
-                            By.XPATH,
-                            '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[5]/label/div/div[2]/div/input',
-                        )
-                    )
-                ).send_keys(self.user_name)
-                next_button = self.wait.until(
-                    EC.presence_of_element_located(
-                        (
-                            By.XPATH,
-                            '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[6]',
-                        )
-                    )
-                ).click()
+                username = self.wait.until(EC.presence_of_element_located((By.XPATH, EMAIL))).send_keys(self.user_name)
+                next_button = self.wait.until(EC.presence_of_element_located((By.XPATH, NEXT_BUTTON))).click()
             except:
                 pass
-            password = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/label/div/div[2]/div[1]/input',
-                    )
-                )
-            ).send_keys(self.password)
-            next_button = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div',
-                    )
-                )
-            ).click()
+            password = self.wait.until(EC.presence_of_element_located((By.XPATH, PASSWORD))).send_keys(self.password)
+            login_button = self.wait.until(EC.presence_of_element_located((By.XPATH, LOGIN_BUTTON))).click()
         time.sleep(5)
+
 
     def like_tweet(self, hashtag):
         for x in hashtag:
-            tweet_button_XPATH = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="react-root"]/div/div/div[2]/header/div/div/div/div[1]/div[2]/nav/a[2]',
-                    )
-                )
-            ).click()
-            search_button_XPATH = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/div[2]/div/div/div/form/div[1]/div/div/label/div[2]/div/input',
-                    )
-                )
-            ).send_keys(x)
-            search_button_Click_XPATH = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/div[2]/div/div/div/form/div[1]/div/div/label/div[2]/div/input',
-                    )
-                )
-            ).send_keys(Keys.ENTER)
+            tweet_button_XPATH = self.wait.until(EC.presence_of_element_located((By.XPATH, SEARCH_BOX)))
+            self.bot.execute_script("arguments[0].click();", tweet_button_XPATH)
+            tweet_button_XPATH.send_keys(Keys.CONTROL+"a")
+            tweet_button_XPATH.send_keys(Keys.DELETE)
             time.sleep(1)
-            go_to_photos_XPATH = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[1]/div[2]/nav/div/div[2]/div/div[4]/a',
-                    )
-                )
-            ).click()
-            time.sleep(5)
-            print("sleeping")
+            tweet_button_XPATH.send_keys(x)
+            tweet_button_XPATH.send_keys(Keys.ENTER)
+
             for i in range(self.no_of_tweets):
                 print(i)
                 try:
-                    like = self.wait.until(
-                        EC.presence_of_element_located(
-                            (By.XPATH, "//div[@data-testid='like']")
-                        )
-                    ).click()
+                    likes = self.wait.until(EC.presence_of_all_elements_located((By.XPATH, LIKE_BUTTONS)))
+                    #like tweet for the given range of i
+                    likes[i].click()
+                    time.sleep(2)
                     print("liked_image")
-                    time.sleep(1)
                 except:
-                    time.sleep(1)
-                    print("liked_image_failed_except")
-                    self.bot.execute_script(
-                        "window.scrollTo(0, document.body.scrollHeight/1.5);"
-                    )
-                    time.sleep(1)
+                    self.bot.execute_script("window.scrollTo(0, document.body.scrollHeight/4);")
+                    time.sleep(2)
+                    continue
+
         time.sleep(1)
         print("Next hashtag")
+
 
     def only_like_top_tweet(self, hashtag):
         for x in hashtag:
-            tweet_button_XPATH = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="react-root"]/div/div/div[2]/header/div/div/div/div[1]/div[2]/nav/a[2]',
-                    )
-                )
-            ).click()
-            search_button_XPATH = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[1]/div[1]/div[1]/div/div/div/div/div[1]/div[2]/div/div/div/form/div[1]/div/div/div/label/div[2]/div/input',
-                    )
-                )
-            ).send_keys(x)
-            search_button_Click_XPATH = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[1]/div[1]/div[1]/div/div/div/div/div[1]/div[2]/div/div/div/form/div[1]/div/div/div/label/div[2]/div/input',
-                    )
-                )
-            ).send_keys(Keys.ENTER)
-            print("sleeping")
-            for i in range(self.no_of_tweets):
-                print(i)
-                try:
-                    like = self.wait.until(
-                        EC.presence_of_element_located(
-                            (By.XPATH, "//div[@data-testid='like']")
-                        )
-                    ).click()
-                    print("liked_image")
-                    time.sleep(1)
-                except:
-                    time.sleep(1)
-                    print("liked_image_failed_except")
-                    self.bot.execute_script(
-                        "window.scrollTo(0, document.body.scrollHeight/1.5);"
-                    )
-                    time.sleep(1)
+            tweet_button_XPATH = self.wait.until(EC.presence_of_element_located((By.XPATH, SEARCH_BOX)))
+            self.bot.execute_script("arguments[0].click();", tweet_button_XPATH)
+            tweet_button_XPATH.send_keys(Keys.CONTROL + "a")
+            tweet_button_XPATH.send_keys(Keys.DELETE)
+            time.sleep(1)
+            tweet_button_XPATH.send_keys(x)
+            tweet_button_XPATH.send_keys(Keys.ENTER)
+
+            try:
+                like = self.wait.until(EC.presence_of_element_located((By.XPATH, LIKE_BUTTON))).click()
+                print("liked_image")
+            except:
+                self.bot.execute_script("window.scrollTo(0, document.body.scrollHeight/4);")
+
         time.sleep(1)
         print("Next hashtag")
+
 
     def tweet(self, tweet_body):
-        tweet_button_XPATH = self.wait.until(
-            EC.presence_of_element_located(
-                (
-                    By.XPATH,
-                    '//*[@id="react-root"]/div/div/div[2]/header/div/div/div/div[1]/div[3]/a',
-                )
-            )
-        ).click()
+        tweet_button_XPATH = self.wait.until(EC.presence_of_element_located((By.XPATH, POST_BUTTON))).click()
         print("Tweet Button Clicked", tweet_body)
-        message_XPATH = self.wait.until(
-            EC.presence_of_element_located(
-                (
-                    By.XPATH,
-                    '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div/div[3]/div[2]/div[1]/div/div/div/div[1]/div[2]/div/div/div/div/div/div/div[2]/div/div/div/div/label/div[1]/div/div/div/div/div/div[2]/div/div/div/div',
-                )
-            )
-        ).send_keys(tweet_body)
-
-        send_tweet = self.wait.until(EC.element_to_be_clickable((By.XPATH,'//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div/div[3]/div[2]/div[1]/div/div/div/div[2]/div[2]/div/div/div[2]/div[4]'))).click()
+        message_XPATH = self.wait.until(EC.presence_of_element_located((By.XPATH, TWEET_TEXT))).send_keys(tweet_body)
 
         try:
-            send_tweet_XPATH = self.wait.until(
-                EC.element_to_be_clickable(
-                    (
-                        By.XPATH,
-                        '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div/div[3]/div[2]/div[1]/div/div/div/div[2]/div[2]/div/div/div[2]/div',
-                    )
-                )
-            ).click()
+            send_tweet_XPATH = self.wait.until(EC.element_to_be_clickable((By.XPATH, POST_TWEET_BUTTON))).click()
+            time.sleep(2)
         except:
-            self.bot.execute_script(
-                "window.scrollTo(0, document.body.scrollHeight/1.5);"
-            )
+            self.bot.execute_script("window.scrollTo(0, document.body.scrollHeight/4);")
 
-    def Unlike_liked_tweets(self, length):
-        goto_profile_XPATH = self.wait.until(
-            EC.presence_of_element_located(
-                (
-                    By.XPATH,
-                    '//*[@id="react-root"]/div/div/div[2]/header/div/div/div/div[1]/div[2]/nav/a[5]',
-                )
-            )
-        ).click()
-        goto_liked_tweets_XPATH = self.wait.until(
-            EC.presence_of_element_located(
-                (
-                    By.XPATH,
-                    '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[2]/div/div/nav/div/div[2]/div/div[4]/a',
-                )
-            )
-        ).click()
+
+    def unlike_liked_tweets(self, length):
+        time.sleep(5)
+        goto_profile_XPATH = self.wait.until(EC.presence_of_element_located((By.XPATH, PROFILE_BUTTON))).click()
+        time.sleep(5)
+        goto_liked_tweets_XPATH = self.wait.until(EC.presence_of_element_located((By.XPATH, LIKE_TAB_IN_PROFILE))).click()
+
         for i in range(length):
             try:
-                unlike = self.wait.until(
-                    EC.presence_of_element_located(
-                        (By.XPATH, "//div[@data-testid='unlike']")
-                    )
-                ).click()
+                unlikes = self.wait.until(EC.presence_of_all_elements_located((By.XPATH, UNLIKE_BUTTONS)))
+                unlikes[i].click()
+                time.sleep(2)
                 print("unliked_image")
-                time.sleep(1)
             except:
-                time.sleep(1)
-                print("unliked_image_failed_except")
-                self.bot.execute_script(
-                    "window.scrollTo(0, document.body.scrollHeight/1.5);"
-                )
-                time.sleep(1)
+                self.bot.execute_script("window.scrollTo(0, document.body.scrollHeight/4);")
+                time.sleep(2)
+                continue
+
         time.sleep(1)
         print("Next hashtag")
+
 
     def retweet(self, hashtag):
         for x in hashtag:
-            tweet_button_XPATH = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="react-root"]/div/div/div[2]/header/div/div/div/div[1]/div[2]/nav/a[2]',
-                    )
-                )
-            ).click()
-            search_button_XPATH = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/div[2]/div/div/div/form/div[1]/div/div/label/div[2]/div/input',
-                    )
-                )
-            ).send_keys(x)
-            search_button_Click_XPATH = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/div[2]/div/div/div/form/div[1]/div/div/label/div[2]/div/input',
-                    )
-                )
-            ).send_keys(Keys.ENTER)
-            time.sleep(1)
-            go_to_latest_XPATH = self.wait.until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[1]/div[2]/nav/div/div[2]/div/div[2]/a',
-                    )
-                )
-            ).click()
-            time.sleep(5)
-            print("sleeping")
+            tweet_button_XPATH = self.wait.until(EC.presence_of_element_located((By.XPATH, SEARCH_BOX)))
+            self.bot.execute_script("arguments[0].click();", tweet_button_XPATH)
+            tweet_button_XPATH.send_keys(Keys.CONTROL + "a")
+            tweet_button_XPATH.send_keys(Keys.DELETE)
+            tweet_button_XPATH.send_keys(x)
+            tweet_button_XPATH.send_keys(Keys.ENTER)
+            time.sleep(2)
             for i in range(self.no_of_tweets):
                 print(i)
                 try:
-                    retweet = self.wait.until(
-                        EC.presence_of_element_located(
-                            (By.XPATH, "//div[@data-testid='retweet']")
-                        )
-                    ).click()
-                    retweet_click = self.wait.until(
-                        EC.presence_of_element_located(
-                            (By.XPATH, "//div[@data-testid='retweetConfirm']")
-                        )
-                    ).click()
+                    retweets = self.wait.until(EC.presence_of_all_elements_located((By.XPATH, REPOST_BUTTONS)))
+                    retweets[i].click()
+                    time.sleep(1)
+                    retweet_confirm_click = self.wait.until(EC.presence_of_element_located((By.XPATH, RETWEET_CONFIRM_BUTTON))).click()
+                    time.sleep(2)
+                    close_confirm_bar = self.wait.until(EC.presence_of_element_located((By.XPATH, CLOSE_BAR_BUTTON)))
+                    self.bot.execute_script("arguments[0].click();", close_confirm_bar)
                     print("retweet")
-                    time.sleep(1)
+                    self.wait.until(EC.presence_of_element_located((By.XPATH, SEARCH_BOX)))
                 except:
-                    time.sleep(1)
-                    print("retweet_tweet_failed_except")
                     self.bot.execute_script(
-                        "window.scrollTo(0, document.body.scrollHeight/1.5);"
+                        "window.scrollTo(0, document.body.scrollHeight/4);"
                     )
-                    time.sleep(1)
+                    time.sleep(2)
+                    continue
         time.sleep(1)
         print("Next hashtag")
+
 
     def post_tech_news(self, no_of_tweets):
         tech = []
@@ -411,10 +225,10 @@ class SimpleTwitter:
             time.sleep(2)
         return x
     
-    def postLinkedIn(self, content):
-       x = LinkedInTwitter(content)  
-       self.tweet(x)
+    # def postLinkedIn(self, content):
+    #    x = LinkedInTwitter(content)
+    #    self.tweet(x)
 
        
-if name == 'main': 
+if __name__ == 'main':
     app.run(debug=True)
